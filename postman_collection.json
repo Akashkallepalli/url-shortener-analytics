@@ -1,0 +1,58 @@
+{
+  "info": {
+    "name": "URL Shortener API",
+    "description": "Complete test collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Short URL",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"original_url\": \"https://www.google.com\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/shorten",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "shorten"]
+        }
+      }
+    },
+    {
+      "name": "Redirect (Get short code from Create response)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://127.0.0.1:8000/aB7xK9m",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["aB7xK9m"]
+        }
+      }
+    },
+    {
+      "name": "Get Stats",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/stats/aB7xK9m",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "stats", "aB7xK9m"]
+        }
+      }
+    }
+  ]
+}
